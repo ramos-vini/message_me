@@ -1,0 +1,9 @@
+<div>
+    <div style="border: 1px solid grey; height: 400px; width: 800px; padding: 10px">
+        <% @messages.each do |message|%>
+            <p><strong><%= message.user.username %>: </strong><%= message.body %></p>
+        <% end %>
+    </div>
+    <input type="text", placeholder="Enter a message...">
+    <input type="button" value="Send">
+</div>
