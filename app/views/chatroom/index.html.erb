@@ -3,9 +3,12 @@
 <ul>
     <li><a href="">Chatroom</a></li>
     <li><a href="">Messages</a></li>
-    <li><%= link_to "Log in" , login_path %></li>
-    <li><a href="">Log out</a></li>
-    <li><a href="">Sign up</a></li>
+    <% if !logged_in %>
+        <li><%= link_to "Log in" , login_path %></li>
+        <li><a href="">Sign up</a></li>
+    <% else %>
+        <li><%= link_to "Log out" , logout_path, method: :delete %></li>
+    <% end %>
 </ul>
 
 <h2>Chat</h2>
