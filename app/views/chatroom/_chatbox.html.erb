@@ -4,6 +4,14 @@
             <p><strong><%= message.user.username %>: </strong><%= message.body %></p>
         <% end %>
     </div>
-    <input type="text", placeholder="Enter a message...">
-    <input type="button" value="Send">
+    <% if logged_in %>
+        <%= form_with(scope: :message, local: true, url: messages_path) do |f| %>
+            <%= f.text_field :body, placeholder: "Enter a message..." %>
+            <%= f.submit "Send" %>
+        <% end %>
+    <% else %>
+        <%= link_to "Want to join the chat?", login_path %>
+    <% end %>
 </div>
+
+
