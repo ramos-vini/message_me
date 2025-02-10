@@ -1,11 +1,11 @@
 <div>
-    <div style="border: 1px solid grey; height: 400px; width: 800px; padding: 10px">
+    <div id="chatroom_chatbox" style="border: 1px solid grey; height: 400px; width: 800px; padding: 10px">
         <% @messages.each do |message|%>
-            <p><strong><%= message.user.username %>: </strong><%= message.body %></p>
+            <%= render 'message', message: message %>
         <% end %>
     </div>
     <% if logged_in %>
-        <%= form_with(scope: :message, local: true, url: messages_path) do |f| %>
+        <%= form_with(scope: :message, remote: true, url: messages_path) do |f| %>
             <%= f.text_field :body, placeholder: "Enter a message..." %>
             <%= f.submit "Send" %>
         <% end %>
