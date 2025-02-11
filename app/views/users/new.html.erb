@@ -1,0 +1,26 @@
+<h1>Sign Up</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :username, "Username" %>
+  <br>
+  <%= f.text_field :username %>
+  <br><br>
+
+  <%= f.label :email, "Email" %>
+  <br>
+  <%= f.text_field :email %>
+  <br><br>
+
+  <%= f.label :password %>
+  <br>
+  <%= f.password_field :password %>
+  <br><br>
+
+  <%= f.submit "Create account" %>
+<% end %>
+
+<br>
+<%= link_to "Already have an account?", login_path %>
+
+<br><br>
+<%= link_to "Return", root_path %>
