@@ -3,3 +3,6 @@
 import Rails from "@rails/ujs";
 Rails.start();
 import "channels"
+import { scroll_chatbox_down } from "./chatroom"
+
+scroll_chatbox_down();

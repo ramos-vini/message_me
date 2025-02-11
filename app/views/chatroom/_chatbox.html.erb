@@ -1,13 +1,17 @@
 <div>
-    <div id="chatroom_chatbox" style="border: 1px solid grey; height: 400px; width: 800px; padding: 10px">
+    <div id="chatroom_chatbox" style="border: 1px solid grey;
+                                      height: 400px;
+                                      width: 600px;
+                                      padding: 10px;
+                                      overflow: auto">
         <% @messages.each do |message|%>
             <%= render 'message', message: message %>
         <% end %>
     </div>
     <% if logged_in %>
         <%= form_with(scope: :message, remote: true, url: messages_path) do |f| %>
-            <%= f.text_field :body, placeholder: "Enter a message..." %>
-            <%= f.submit "Send" %>
+            <%= f.text_field :body, placeholder: "Enter a message...", id: "message_input", style: "height: 24px; width: 614px"%>
+            <%= f.button "Send", id: "message_submit", style: "display: none" %>
         <% end %>
     <% else %>
         <%= link_to "Want to join the chat?", login_path %>
